@@ -1,3 +1,5 @@
+version: "3.7"
+
 services:
   app:
     build:
@@ -8,3 +10,19 @@ services:
     command: npm run dev
     volumes:
       - ./app:/app
+
+  caddy:
+    image: caddy:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./services/caddy/Caddyfile:/etc/caddy/Caddyfile"
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  caddy_data:
+  caddy_config:
