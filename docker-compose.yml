@@ -4,7 +4,7 @@ services:
     # build:
     #   context: .
     #   dockerfile: Dockerfile.production
-    # command: bash -c 'sleep 3 && npm start'
+    command: npm test
     environment:
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
