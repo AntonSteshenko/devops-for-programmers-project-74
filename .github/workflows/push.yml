@@ -26,6 +26,8 @@ jobs:
       - name: Create env file
         run: |
           echo "${{ secrets.DOTENV }}" > ./app/.env
+        with:
+          context: .
 
       - name: Build App
         uses: docker/build-push-action@v3
