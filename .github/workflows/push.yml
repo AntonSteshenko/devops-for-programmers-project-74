@@ -31,8 +31,10 @@ jobs:
           tags: ${{ env.TEST_TAG }}
 
       - name: Create env file
-        run: |
-          echo "${{ secrets.DOTENV }}" > .env
+        run: echo "${{ secrets.DOTENV }}" > .env
+
+      - name: Create env file for hexlet check
+        run: echo "${{ secrets.DOTENV }}" > ./app/.env
 
       - name: Run tests
         run: make ci
