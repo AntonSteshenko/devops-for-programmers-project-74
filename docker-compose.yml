@@ -36,3 +36,7 @@ volumes:
   caddy_data:
   caddy_config:
   postgres_data:
+
+secrets:
+  postgres_password:
+    file: password.txt
