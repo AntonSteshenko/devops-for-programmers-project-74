@@ -1,24 +1,22 @@
 services:
   app:
-    image: risorsedaffari/devops-for-programmers-project-74
+    image: risorsedaffari/devops-for-programmers-project-74:latest
     # build:
     #   context: .
     #   dockerfile: Dockerfile.production
     command: bash -c 'sleep 5 && npm test'
-    environment:
-      - DATABASE_HOST=db
-      - DATABASE_PORT=5432
-      - DATABASE_NAME=postgres
-      - DATABASE_USERNAME=postgres
-      - DATABASE_PASSWORD=password
+    env_file:
+      - .env
     depends_on:
       - db
 
   db:
-    image: postgres
+    image: postgres:13
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
 
   caddy:
     image: caddy:latest
@@ -35,3 +33,4 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+  postgres_data:
