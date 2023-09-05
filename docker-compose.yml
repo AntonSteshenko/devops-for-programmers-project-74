@@ -4,7 +4,7 @@ services:
     # build:
     #   context: .
     #   dockerfile: Dockerfile.production
-    command: env #bash -c 'sleep 5 && npm test'
+    command: bash -c 'sleep 5 && npm test'
     depends_on:
       - db
 
