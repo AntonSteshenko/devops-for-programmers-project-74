@@ -33,7 +33,7 @@ jobs:
       - name: Create env file
         run: echo "${{ secrets.DOTENV }}" > ./app/.env
 
-      - run: ls app
+      - run: cat app/.env
 
       # - name: Create env file for hexlet check
       #   run: echo "${{ secrets.DOTENV }}" > ./app/.env
