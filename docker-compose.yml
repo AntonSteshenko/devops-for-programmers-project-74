@@ -12,9 +12,9 @@ services:
     image: postgres:latest
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    # environment:
-    #   - POSTGRES_USER=postgres
-    #   - POSTGRES_PASSWORD=password
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
 
   caddy:
     image: caddy:latest
