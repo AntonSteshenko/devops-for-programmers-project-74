@@ -23,6 +23,13 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Build App
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile.production
+          tags: ${{ env.TEST_TAG }}
+
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v2.0
         with:
@@ -30,17 +37,14 @@ jobs:
           envkey_DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
           envkey_DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
           envkey_DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
-          directory: ./app
+          envkey_DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          directory: .
           file_name: .env
           fail_on_empty: false
           sort_keys: false
 
-      - name: Build App
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: Dockerfile.production
-          tags: ${{ env.TEST_TAG }}
+      - run: ls -a
+      - run: cat .env
 
       - name: Run tests
         run: make ci
