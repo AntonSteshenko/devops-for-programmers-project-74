@@ -30,10 +30,10 @@ jobs:
           file: Dockerfile.production
           tags: ${{ env.TEST_TAG }}
 
-      # - name: Create env file
-      #   run: echo "${{ vars.DOTENV }}" > .env
+      - name: Create env file
+        run: echo "${{ vars.DOTENV }}" > .env
 
-      # - run: cat .env
+      - run: cat .env
 
       - name: Run tests
         run: make ci
