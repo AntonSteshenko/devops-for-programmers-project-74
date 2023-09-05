@@ -1,16 +1,41 @@
-To run develop environment:
+# DevOps project 1 app
 
-bash$ make compose
+## Usage
 
-To install dependencies:
+```bash
+make start
+# open https://localhost in browser
+```
 
-bash$ make install-node-deps
+## Requirements
 
-To test:
+- Make
+- Docker
 
-bash$ make ci
+## Install
 
-image
+```bash
+make setup
+```
+
+Edit _.env_ file to set up environment variables.
+
+```env
+POSTGRES_USER=postgres_user
+POSTGRES_PASSWORD=password
+DATABASE_HOST=host_address
+DATABASE_PORT=port
+DATABASE_USERNAME=postgres_user
+DATABASE_NAME=postgres_db_name
+DATABASE_PASSWORD=password
+```
+
+## Start application
+
+```bash
+make start
+# open https://localhost in browser
+```
 
 ### Hexlet tests and linter status:
 
