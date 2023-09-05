@@ -45,7 +45,7 @@ jobs:
           fail_on_empty: false
           sort_keys: false
 
-      - run: env
+      - run: cat .env
 
       - name: Run tests
         run: make ci
