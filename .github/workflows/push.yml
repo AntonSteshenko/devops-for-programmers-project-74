@@ -47,9 +47,6 @@ jobs:
 
       - run: env
 
-      # - name: Create env file for hexlet check
-      #   run: echo "${{ secrets.DOTENV }}" > ./app/.env
-
       - name: Run tests
         run: make ci
 
