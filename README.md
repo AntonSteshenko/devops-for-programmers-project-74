@@ -1,5 +1,7 @@
 # DevOps project 1 app
 
+dockerImage: risorsedaffari/devops-for-programmers-project-74:latest
+
 ## Usage
 
 ```bash
