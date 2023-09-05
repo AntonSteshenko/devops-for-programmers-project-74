@@ -10,10 +10,11 @@ services:
 
   db:
     image: postgres:latest
-    env_file:
-      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+    # environment:
+    #   - POSTGRES_USER=postgres
+    #   - POSTGRES_PASSWORD=password
 
   caddy:
     image: caddy:latest
