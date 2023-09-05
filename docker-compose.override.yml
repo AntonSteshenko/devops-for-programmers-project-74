@@ -11,6 +11,7 @@ services:
     volumes:
       - ./app:/app
 
+
   caddy:
     image: caddy:latest
     ports:
