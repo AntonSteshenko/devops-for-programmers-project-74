@@ -14,7 +14,7 @@ services:
       - DATABASE_PASSWORD=${DATABASE_PASSWORD-password}
 
   db:
-    image: postgres:latest
+    image: postgres:15
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
@@ -22,7 +22,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD-password}
 
   caddy:
-    image: caddy:latest
+    image: caddy:2.7-alpine
     ports:
       - "80:80"
       - "443:443"
